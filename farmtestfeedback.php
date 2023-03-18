@@ -1,6 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Форма обратной связи Фармани");
+$APPLICATION->SetTitle("Новая заявка");
 ?>
 <div>
 <? $APPLICATION->IncludeComponent(
