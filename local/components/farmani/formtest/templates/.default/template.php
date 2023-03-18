@@ -52,6 +52,37 @@
     </div>
     <?endif?>
     
+    <div class="form-row align-items-center" id='reqRow'>
+        <div class="col-md-2">
+            <label>Бренд</label>
+            <input type="text" class="form-control" placeholder="Бренд">
+        </div>
+        <div class="col-auto">
+            <label>Наименование</label>
+            <input type="text" class="form-control" placeholder="Наименование">
+        </div>
+        <div class="col-md-1">
+            <label>Количество</label>
+            <input type="text" class="form-control" placeholder="Количество">
+        </div>
+        <div class="col-md-1">
+            <label>Фасовка</label>
+            <input type="text" class="form-control" placeholder="Фасовка">
+        </div>
+        <div class="col-auto">
+            <label>Клиент</label>
+            <input type="text" class="form-control" placeholder="Клиент">
+        </div>
+        <div class="col-auto">
+            <button type="button" class="btn btn-primary">+</button>
+        </div>
+        <div class="col-auto">
+            <button type="button" class="btn btn-primary">-</button>
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="file" style="text-align: center;" class="form-control-file" id="inFile">
+    </div>
   <button type="submit" class="btn btn-primary">Отправить</button>
 </form>
 
