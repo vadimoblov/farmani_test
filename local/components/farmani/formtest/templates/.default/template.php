@@ -6,44 +6,52 @@
         <label>Заголовок заявки</label>
         <input type="text" class="form-control" id="requestTitle" placeholder="Просим отпустить">    
     </div>
+    
+    <?if(!empty($arResult['CATEGORY'])):?>
     <div class="form-group">
         <label>Категория</label>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="category" id="category1" value="Фильтры" checked>
-            <label class="form-check-label" for="category1">
-            Фильтры
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="category" id="category2" value="Шины">
-            <label class="form-check-label" for="category2">
-            Шины
-            </label>
-        </div>
+        <?$cid = 1?> 
+        <?foreach($arResult['CATEGORY'] as $category):?>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="category" id="category<?=$cid?>" value="<?=$category?>" <?if($cid==1):?>checked<?endif?> >
+                <label class="form-check-label">
+                    <?=$category?>
+                </label>
+            </div>
+            <?$cid++?>
+        <?endforeach?>
     </div>
+    <?endif?>
+    
+    <?if(!empty($arResult['REQUEST_TYPE'])):?>
     <div class="form-group">
         <label>Вид заявки</label>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="requestType" id="rtype1" value="Запрос цены и сроков поставки" checked>
-            <label class="form-check-label">
-            Запрос цены и сроков поставки
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="requestType" id="rtype2" value="Пополнение складов">
-            <label class="form-check-label">
-            Пополнение складов
-            </label>
-        </div>
+        <?$rid = 1?> 
+        <?foreach($arResult['REQUEST_TYPE'] as $rtype):?>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="requestType" id="rtype<?=$rid?>" value="<?=$rtype?>" <?if($rid==1):?>checked<?endif?> >
+                <label class="form-check-label">
+                <?=$rtype?>
+                </label>
+            </div>
+        <?$rid++?>
+        <?endforeach?>
     </div>
+    <?endif?>
+    
+    <?if(!empty($arResult['STOCK_HOUSE'])):?>
     <div class="form-group">
         <label>Склад поставки</label>
         <select class="form-control" id="stockHouse">
-            <option>Склад 1</option>
-            <option>Склад 2</option>
-            <option>Склад 3</option>
+            <?$stid = 1?> 
+            <?foreach($arResult['STOCK_HOUSE'] as $sths):?>
+            <option><?=$sths?></option>
+            <?$stid++?>
+            <?endforeach?>
         </select>
     </div>
+    <?endif?>
+    
   <button type="submit" class="btn btn-primary">Отправить</button>
 </form>
 
