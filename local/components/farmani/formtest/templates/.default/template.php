@@ -51,8 +51,8 @@
         </select>
     </div>
     <?endif?>
-    
-    <div class="form-row align-items-center" id='reqRow'>
+    <div class="form-group" id='reqrowmain'>
+    <div class="form-row align-items-center reqRow">
         <div class="col-md-2">
             <label>Бренд</label>
             <input type="text" class="form-control" placeholder="Бренд">
@@ -74,14 +74,16 @@
             <input type="text" class="form-control" placeholder="Клиент">
         </div>
         <div class="col-auto">
-            <button type="button" class="btn btn-primary">+</button>
+            <button type="button" class="btn btn-primary button-add-farm">+</button>
         </div>
         <div class="col-auto">
-            <button type="button" class="btn btn-primary">-</button>
+            <button type="button" class="btn btn-primary button-remove-farm">-</button>
         </div>
     </div>
+    </div>
     <div class="form-group">
-        <input type="file" style="text-align: center;" class="form-control-file" id="inFile">
+        <label for="inFile" class="btn btn-info">Выберите файл</label>
+        <input type="file" style="display:none;" class="form-control-file" id="inFile">
     </div>
   <button type="submit" class="btn btn-primary">Отправить</button>
 </form>
@@ -90,3 +92,18 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script>
+$(document).ready(function() {
+    $(document).on("click", ".button-add-farm", function() {        
+        $('.reqRow:first').clone().insertAfter(".reqRow:last");
+    });
+    $(document).on("click", ".button-remove-farm", function() {
+        $(this).closest(".reqRow").remove();
+    });
+    $("#inFile").change(function() {
+        filename = this.files[0].name;
+        console.log(filename);
+        $(this).prev('label').text(filename);
+    });
+});
+</script>
